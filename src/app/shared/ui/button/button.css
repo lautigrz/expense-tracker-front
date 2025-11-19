@@ -1,0 +1,61 @@
+.btn {
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+  font-family: Lexend, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+
+  width: 100%;
+  justify-content: center;
+
+
+}
+
+
+
+.btn.primary {
+  background: #c3b1e1;
+  color: #fff;
+
+}
+
+.btn.primary:hover {
+  background: #b69edd;
+}
+
+.btn.secondary {
+  background: #374151;
+  color: #fff;
+  font-size: 1em;
+}
+
+.btn.secondary:hover {
+  background: #4b5563;
+}
+
+
+
+.btn.sm {
+  padding: 10px 15px;
+  font-size: 0.70rem;
+  
+}
+
+.btn.md {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+
+.btn.lg {
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.i {
+  font-family: "Material Symbols Outlined";
+  font-size: 20px;
+}

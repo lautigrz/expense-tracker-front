@@ -1,0 +1,18 @@
+.confirmacion {
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+span{
+    margin-top: 10px;
+    font-size: 3em;
+    color: green;
+}
+
+p{
+    color: var rgb(0, 0, 0);
+}

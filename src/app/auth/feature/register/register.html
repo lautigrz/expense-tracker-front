@@ -1,0 +1,76 @@
+<div class="cartel">
+    <app-confirm-dialog
+    [header]="dialogHeader"
+    [message]="dialogMessage"
+    [icon]="dialogIcon"
+    [visible]="dialogVisible"
+    [closeable]="true"
+    >
+    </app-confirm-dialog>
+</div>
+<section class="login">
+    <div class="login-center">
+        <div class="header-form">
+            <span class="material-symbols-outlined text-3xl">
+                wallet
+            </span>
+            <h2>Listo?</h2>
+            <p>Registrate para manejar tus gastos.</p>
+        </div>
+
+        <form [formGroup]="registerForm">
+            <div class="container-input">
+                <div class="input-group">
+                    <label for="nombre">Nombre</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">person</span>
+                        <input pInputText id="nombre" placeholder="Ej: Eduardo Gomez"
+                         autocomplete="off" 
+                         formControlName="username"
+                         />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">mail</span>
+                        <input pInputText id="email" placeholder="nombre@example.com" 
+                        autocomplete="off"
+                        formControlName="email"
+                        />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">lock</span>
+                        <p-password inputId="password" [toggleMask]="true" feedback="false"
+                            placeholder="Ingrese su contraseña" autocomplete="off"
+                            formControlName="password"
+                            >
+                        </p-password>
+                    </div>
+                </div>
+
+            </div>
+
+            @if (mensajeError) {
+                <app-message-invalid [mensaje]="mensajeError"></app-message-invalid>
+           
+            }
+
+            <div class="boton">
+                <app-button texto="Registrarme" (click)="onsubmit()"></app-button>
+            </div>
+        </form>
+
+
+    </div>
+</section>
+
+@if(loading){
+
+<app-loading></app-loading>
+}

@@ -1,0 +1,33 @@
+main {
+    background-color: #f7fbf9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.parent {
+    display: flex;
+    gap: 8px;
+    width: 70%;
+}
+
+.content-grafico {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 7px 1px rgb(204, 204, 204);
+    width: 70%;
+    padding: 10px 20px;
+}
+
+
+.total-mes,
+.total-semana {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 7px 1px rgb(204, 204, 204);
+    width: 50%;
+}

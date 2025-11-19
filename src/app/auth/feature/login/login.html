@@ -1,0 +1,41 @@
+<section class="login">
+    <div class="login-center">
+        <div class="header-form">
+            <span class="material-symbols-outlined text-3xl">
+                wallet
+            </span>
+            <h2>Bienvenido de nuevo</h2>
+            <p>Inicia para manejar tus gastos.</p>
+        </div>
+
+        <form>
+            <div class="container-input">
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">mail</span>
+                        <input pInputText id="email" placeholder="nombre@example.com" autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">lock</span>
+                        <p-password inputId="password" [toggleMask]="true" feedback="false" placeholder="Ingrese su contraseña" autocomplete="off">
+                            
+                        </p-password>
+                    </div>
+                </div>
+
+            </div>
+
+           <div class="boton">
+             <app-button texto="Iniciar sesion"></app-button>
+           </div>
+        </form>
+
+        <p class="mensaje-registro">No tenes cuenta? <a class="registro" routerLink="/auth/registro">Registrate</a></p>
+    </div>
+</section>

@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+ padding: 0;
+ margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Manrope', sans-serif;
+
+
+}
+
+body {
+    min-height: 100vh;
+    --p-inputtext-padding-x: 0.8em;
+    --p-inputtext-padding-y: 0.7em;
+}
+
+input[pInputText],
+.p-inputtext {
+    width: 100% !important;
+}
+
+p-password,
+.p-password-input {
+    width: 100% !important;
+
+    box-sizing: border-box;
+}
+
+.p-password-input {
+    padding-left: 40px !important;
+}
+
+.overlay {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999 !important; 
+
+    --p-progressspinner-color-one:#c3b1e1;
+    --p-progressspinner-color-two:#ae8ee2;
+     --p-progressspinner-color-three:#9465e0;
+      --p-progressspinner-color-four:#8852df;
+}
+
+.mensaje-invalid{
+    display: flex;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    gap: 10px;
+    background-color: #fcf1f1;
+}
+
+.mensaje-invalid p,
+.mensaje-invalid span{
+    color: #e67e7e;
+}
