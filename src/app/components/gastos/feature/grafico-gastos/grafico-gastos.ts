@@ -4,18 +4,18 @@ import { ChartModule } from 'primeng/chart';
 
 
 @Component({
-  selector: 'app-grafico-gastos',
-  imports: [ChartModule],
-  templateUrl: './grafico-gastos.html',
-  styleUrl: './grafico-gastos.css',
+    selector: 'app-grafico-gastos',
+    imports: [ChartModule],
+    templateUrl: './grafico-gastos.html',
+    styleUrl: './grafico-gastos.css',
 })
-export class GraficoGastos implements OnInit{
-  data: any;
+export class GraficoGastos implements OnInit {
+    data: any;
     options: any;
 
     platformId = inject(PLATFORM_ID);
 
-    constructor(private cd: ChangeDetectorRef) {}
+    constructor(private cd: ChangeDetectorRef) { }
 
     ngOnInit() {
         this.initChart();
@@ -49,8 +49,12 @@ export class GraficoGastos implements OnInit{
                 cutout: '60%',
                 plugins: {
                     legend: {
+                        position: 'bottom',
                         labels: {
-                            color: textColor
+                            color: textColor,
+                            usePointStyle: true,   
+                            pointStyle: 'circle'
+
                         }
                     }
                 }

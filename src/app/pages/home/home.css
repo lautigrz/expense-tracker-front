@@ -1,10 +1,17 @@
 main {
+    padding-top: 20px;
     background-color: #f7fbf9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+
+}
+
+nav {
+    padding: 20px;
+    width: 70%;
 
 }
 
@@ -15,9 +22,7 @@ main {
 }
 
 .content-grafico {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0px 0px 7px 1px rgb(204, 204, 204);
+
     width: 70%;
     padding: 10px 20px;
 }
@@ -26,8 +31,14 @@ main {
 .total-mes,
 .total-semana {
     padding: 20px;
+    width: 50%;
+}
+
+nav,
+.content-grafico,
+.total-mes,
+.total-semana{
     border-radius: 15px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 7px 1px rgb(204, 204, 204);
-    width: 50%;
+    box-shadow: 0px 0px 7px 1px rgb(233, 233, 233);
 }

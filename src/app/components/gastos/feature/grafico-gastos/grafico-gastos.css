@@ -6,17 +6,24 @@
     width: 100%;
 }
 
-.content-header{
+.container p {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: rgb(134, 134, 134);
+}
+
+.content-header {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-.container-total{
+
+.container-total {
     display: flex;
     gap: 8px;
 }
 
-span{
+span {
     color: green;
 }
 
@@ -27,5 +34,5 @@ span{
 }
 
 p-chart {
-    max-width: 400px; 
+    max-width: 400px;
 }
