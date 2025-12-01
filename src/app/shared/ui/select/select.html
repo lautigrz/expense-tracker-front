@@ -1,0 +1,12 @@
+<div class="form-group">
+     <label [for]="label()">
+        <span class="material-symbols-outlined icon-label">{{icon()}}</span>
+        {{texto()}}
+    </label>
+    <p-select [options]="cities"
+     optionLabel="name" 
+     [placeholder]="placeholder()" 
+     class="w-full md:w-56"
+     [inputId]="label()"
+     />
+</div>

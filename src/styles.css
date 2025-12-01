@@ -1,6 +1,6 @@
-*{
- padding: 0;
- margin: 0;
+* {
+    padding: 0;
+    margin: 0;
 }
 
 html,
@@ -15,12 +15,20 @@ body {
     min-height: 100vh;
     --p-inputtext-padding-x: 0.8em;
     --p-inputtext-padding-y: 0.7em;
+
 }
 
 input[pInputText],
 .p-inputtext {
     width: 100% !important;
 }
+
+
+.p-select:not(.p-disabled).p-focus {
+    border-color: #7c5dfa !important;
+    box-shadow: 0 0 5px rgba(124, 93, 250, 0.5) !important;
+}
+
 
 p-password,
 .p-password-input {
@@ -43,15 +51,15 @@ p-password,
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999 !important; 
+    z-index: 99999 !important;
 
-    --p-progressspinner-color-one:#c3b1e1;
-    --p-progressspinner-color-two:#ae8ee2;
-     --p-progressspinner-color-three:#9465e0;
-      --p-progressspinner-color-four:#8852df;
+    --p-progressspinner-color-one: #c3b1e1;
+    --p-progressspinner-color-two: #ae8ee2;
+    --p-progressspinner-color-three: #9465e0;
+    --p-progressspinner-color-four: #8852df;
 }
 
-.mensaje-invalid{
+.mensaje-invalid {
     display: flex;
     padding: 15px;
     margin-top: 15px;
@@ -63,6 +71,38 @@ p-password,
 }
 
 .mensaje-invalid p,
-.mensaje-invalid span{
+.mensaje-invalid span {
     color: #e67e7e;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group input {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #7c5dfa;
+    box-shadow: 0 0 5px rgba(124, 93, 250, 0.5);
+
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.icon-label {
+    font-size: 18px;
+    opacity: 0.7;
 }

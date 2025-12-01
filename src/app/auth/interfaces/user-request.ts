@@ -4,3 +4,8 @@ export interface UserRegisterRequest {
     password: string
 }
 
+export interface UserLogin{
+    username: string,
+    password: string
+}
+

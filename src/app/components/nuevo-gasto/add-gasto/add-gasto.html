@@ -1,0 +1,22 @@
+<div class="container-add-gasto">
+    <h1>Agregar Nuevo Gasto</h1>
+    <form> 
+
+        <app-input label="monto" type="number"texto="Monto" 
+        placeholder="$ 0.00" 
+        icon="monetization_on">
+        </app-input>
+
+            <app-input label="descripcion" type="text"texto="Descripcion" 
+        placeholder="?" 
+        icon="description">
+        </app-input>
+        <app-select label="categoria" texto="Categoria" icon="sell" placeholder="Seleccionar categoria"></app-select>
+
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" ngModel required>
+        </div>
+        <button type="submit">Agregar Gasto</button>
+    </form>
+</div>

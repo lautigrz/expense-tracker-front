@@ -13,5 +13,9 @@ export const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.routes').then(m => m.default)
+  },
+  {
+    path:'add-expense',
+    loadChildren: () => import('./pages/add-expense/add-expense.routes').then(m => m.default)
   }
 ];

@@ -8,14 +8,17 @@
             <p>Inicia para manejar tus gastos.</p>
         </div>
 
-        <form>
+        <form [formGroup]="loginForm">
             <div class="container-input">
 
                 <div class="input-group">
-                    <label for="email">Email</label>
+                    <label for="username">Username</label>
                     <div class="input-wrapper">
-                        <span class="material-symbols-outlined input-icon">mail</span>
-                        <input pInputText id="email" placeholder="nombre@example.com" autocomplete="off" />
+                        <span class="material-symbols-outlined input-icon">person</span>
+                        <input pInputText id="username" 
+                        placeholder="Ej: lautigrz" autocomplete="off"
+                        formControlName="username"
+                        />
                     </div>
                 </div>
 
@@ -23,7 +26,9 @@
                     <label for="password">Password</label>
                     <div class="input-wrapper">
                         <span class="material-symbols-outlined input-icon">lock</span>
-                        <p-password inputId="password" [toggleMask]="true" feedback="false" placeholder="Ingrese su contraseña" autocomplete="off">
+                        <p-password inputId="password" [toggleMask]="true" feedback="false" placeholder="Ingrese su contraseña" autocomplete="off"
+                        formControlName="password"
+                        >
                             
                         </p-password>
                     </div>
@@ -32,7 +37,7 @@
             </div>
 
            <div class="boton">
-             <app-button texto="Iniciar sesion"></app-button>
+             <app-button texto="Iniciar sesion" (click)="onSubmit()"></app-button>
            </div>
         </form>
 
