@@ -1,0 +1,16 @@
+<div class="movement-list">
+
+    <div class="movement-item">
+        <div class="movement-left">
+            <app-icon [icon]="expensesMovimientos!.category!.icon" [color]="expensesMovimientos!.category!.color"
+                [backgroundColor]="expensesMovimientos!.category!.background"></app-icon>
+            <div class="movement-text">
+                <p class="movement-title">{{expensesMovimientos!.description}}</p>
+                <p class="movement-date">16 Dic</p>
+            </div>
+        </div>
+        <p class="movement-amount negative">-${{expensesMovimientos!.amount}}</p>
+    </div>
+
+
+</div>

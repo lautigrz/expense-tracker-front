@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AddGasto } from "../../components/nuevo-gasto/add-gasto/add-gasto";
+import { AddGasto } from '../../components/form-gasto/add-gasto/add-gasto';
+
 
 @Component({
   selector: 'app-add-expense',

@@ -37,8 +37,25 @@ nav {
 nav,
 .content-grafico,
 .total-mes,
-.total-semana{
+.total-semana,
+.content-movimientos {
     border-radius: 15px;
     background-color: #ffffff;
     box-shadow: 0px 0px 7px 1px rgb(233, 233, 233);
+}
+
+.content-movimientos {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    padding: 20px 24px 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+}
+
+.card-title {
+    color: black;
 }

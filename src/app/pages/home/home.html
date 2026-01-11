@@ -4,18 +4,27 @@
     </nav>
     <section class="parent">
         <div class="total-semana">
-            <app-total-gastos title="Total gastado esta semana" totalGastado="125.60"></app-total-gastos>
+            <app-total-gastos title="Total gastado esta semana"
+                totalGastado="{{totalSemana | number:'1.2-2'}}"></app-total-gastos>
         </div>
-        <div class="total-mes"> <app-total-gastos
-            title="Total gastado en el mes" totalGastado="225.60"
-            ></app-total-gastos></div>
+        <div class="total-mes"> <app-total-gastos title="Total gastado en el mes"
+                totalGastado="{{totalMes | number:'1.2-2'}}"></app-total-gastos></div>
     </section>
 
     <section class="content-grafico">
 
-            <app-grafico-gastos></app-grafico-gastos>
+        <app-grafico-gastos></app-grafico-gastos>
 
 
+    </section>
+
+    <section class="content-movimientos">
+        <h2 class="card-title">Últimos Movimientos</h2>
+        @for (item of expensesMovimientos; track $index) {
+
+        <app-movimientos [expensesMovimientos]="item"></app-movimientos>
+
+        }
     </section>
 
 </main>

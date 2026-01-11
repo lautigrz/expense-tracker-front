@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -13,5 +14,8 @@ export class Input {
   label = input<string>();
   type = input<string>();
   placeholder = input<string>();
+  value = input<string | number>();
 
+ 
 }
+

@@ -1,0 +1,66 @@
+.card-title {
+    padding: 20px 24px 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+}
+
+.card-title {
+    color: black;
+}
+
+.movement-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgb(226, 226, 226);
+}
+
+
+.movement-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    min-height: 72px;
+    transition: background-color 0.2s ease;
+}
+
+.movement-item:hover {
+    background-color: rgba(216, 216, 216, 0.37);
+}
+
+
+.movement-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.movement-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+
+.movement-date {
+    font-size: 14px;
+
+}
+
+body.dark .movement-date {
+    color: var(--text-secondary-dark);
+}
+
+.movement-amount {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.negative {
+    color: var(--text-primary-light);
+}
