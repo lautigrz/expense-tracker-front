@@ -52,15 +52,11 @@
 
 }
 
-body.dark .movement-date {
-    color: var(--text-secondary-dark);
-}
-
 .movement-amount {
     font-size: 16px;
     font-weight: 700;
 }
 
 .negative {
-    color: var(--text-primary-light);
+    color: rgb(58, 58, 58);
 }

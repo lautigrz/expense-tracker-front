@@ -13,8 +13,4 @@ export class Icon {
   @Input() color!: string;
   @Input() backgroundColor!: string;
 
-  ngOnChanges() {
-    console.log('BG RAW:', this.backgroundColor);
-    console.log('BG CLEAN:', this.backgroundColor?.trim());
-  }
 }

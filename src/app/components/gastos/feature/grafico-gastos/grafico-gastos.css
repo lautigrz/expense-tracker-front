@@ -23,7 +23,15 @@
     gap: 8px;
 }
 
-span {
+.variation-label {
+    font-size: 0.75rem;
+    color: #424242;
+    text-align: center;
+}
+
+.variation-value {
+    font-size: 1.1rem;
+    font-weight: 700;
     color: green;
 }
 

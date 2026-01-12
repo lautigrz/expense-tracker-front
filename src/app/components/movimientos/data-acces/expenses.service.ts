@@ -16,7 +16,7 @@ export class ExpensesService {
 
   getExpenses(): Observable<Expense[]> {
 
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYXV0aSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzY4MTU2OTIwLCJleHAiOjE3NjgzMjM1ODB9.zMG3SeM-IqZdH1rI40FbARqaaHkwzhbWntDUyPy5Jzw"
+    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYXV0aSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzY4MTc3NTU4LCJleHAiOjE3NjgzNDQyMTh9.EzoH8tQcivPZwJ7lIxVVvgv0iMWBYN4xM_H0wIobsek"
 
 
     return this.httpClient.get<Expense[]>(`${this.baseUrl}/expense/all`, {

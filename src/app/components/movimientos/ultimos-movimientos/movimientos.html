@@ -6,10 +6,10 @@
                 [backgroundColor]="expensesMovimientos!.category!.background"></app-icon>
             <div class="movement-text">
                 <p class="movement-title">{{expensesMovimientos!.description}}</p>
-                <p class="movement-date">16 Dic</p>
+                <p class="movement-date">{{expensesMovimientos!.date | date: 'mediumDate'}}</p>
             </div>
         </div>
-        <p class="movement-amount negative">-${{expensesMovimientos!.amount}}</p>
+        <p class="movement-amount negative">-$ {{expensesMovimientos!.amount}}</p>
     </div>
 
 
