@@ -8,12 +8,13 @@ import { Expense } from '../../components/movimientos/interfaces/expense.interfa
 import { GastosService } from '../../components/gastos/data-access/gastos-service';
 import { DateRangeType } from '../../components/gastos/enums/date.range';
 import { DecimalPipe } from '@angular/common';
-
+import { dashboardPageAnimation } from './home.animations';
 @Component({
   selector: 'app-home',
   imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe],
   templateUrl: './home.html',
   styleUrl: './home.css',
+  animations: [dashboardPageAnimation]
 })
 export class Home implements OnInit {
   private expensesService = inject(ExpensesService)

@@ -11,7 +11,10 @@ import { TopCategory } from '../interfaces/top-category';
 export class GastosService {
   private baseUrl = environment.apiUrl;
   private httpClient = inject(HttpClient)
-  private token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYXV0aSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzY4MTc3NTU4LCJleHAiOjE3NjgzNDQyMTh9.EzoH8tQcivPZwJ7lIxVVvgv0iMWBYN4xM_H0wIobsek";
+  private token = localStorage.getItem('token');
+
+
+
   getTotalGastado(dateRange: DateRangeType): Observable<number> {
 
 

@@ -3,7 +3,7 @@ import { environment } from '../../../environment/environments';
 import { HttpClient } from '@angular/common/http';
 import { UserLogin, UserRegisterRequest } from '../interfaces/user-request';
 import { Observable } from 'rxjs';
-
+import { UserResponse } from '../interfaces/user-response';
 @Injectable({
   providedIn: 'root',
 })
@@ -21,9 +21,9 @@ export class AuthService {
   }
 
 
-  loginUser(user: UserLogin): Observable<any> {
+  loginUser(user: UserLogin): Observable<UserResponse> {
 
-    return this.httpClient.post<any>(`${this.baseUrl}${environment.loginEndpoint}`, user)
+    return this.httpClient.post<UserResponse>(`${this.baseUrl}${environment.loginEndpoint}`, user)
   }
 
 }

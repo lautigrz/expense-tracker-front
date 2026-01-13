@@ -59,3 +59,13 @@ nav,
 .card-title {
     color: black;
 }
+
+@media (max-width: 1024px) {
+
+    nav,
+    .content-grafico,
+    .content-movimientos,
+    .parent {
+        width: 90%;
+    }
+}

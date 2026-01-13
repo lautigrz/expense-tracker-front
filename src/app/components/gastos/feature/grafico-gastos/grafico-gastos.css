@@ -12,11 +12,18 @@
     color: rgb(134, 134, 134);
 }
 
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 .content-header {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
+
+
 
 .container-total {
     display: flex;
@@ -43,4 +50,10 @@
 
 p-chart {
     max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    small {
+        display: none;
+    }
 }

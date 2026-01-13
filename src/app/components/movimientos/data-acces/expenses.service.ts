@@ -16,7 +16,7 @@ export class ExpensesService {
 
   getExpenses(): Observable<Expense[]> {
 
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYXV0aSIsInJvbGVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzY4MTc3NTU4LCJleHAiOjE3NjgzNDQyMTh9.EzoH8tQcivPZwJ7lIxVVvgv0iMWBYN4xM_H0wIobsek"
+    const token = localStorage.getItem('token');
 
 
     return this.httpClient.get<Expense[]>(`${this.baseUrl}/expense/all`, {

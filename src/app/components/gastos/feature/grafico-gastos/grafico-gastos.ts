@@ -1,5 +1,5 @@
 import { DecimalPipe, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, effect, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { TopCategory } from '../../interfaces/top-category';
 import { GastosService } from '../../data-access/gastos-service';
@@ -83,9 +83,4 @@ export class GraficoGastos implements OnInit {
 
 
     }
-
-
-
-
-
 }
