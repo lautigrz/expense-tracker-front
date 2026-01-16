@@ -9,35 +9,70 @@ import { GastosService } from '../../components/gastos/data-access/gastos-servic
 import { DateRangeType } from '../../components/gastos/enums/date.range';
 import { DecimalPipe } from '@angular/common';
 import { dashboardPageAnimation } from './home.animations';
+import { Dialog } from 'primeng/dialog';
+import { FormGastos } from "../../components/form-gasto/form-gastos/form-gastos";
+import { ExpenseEventsService } from '../../components/form-gasto/data-access/expense-events.service';
+import { forkJoin } from 'rxjs';
+import { Loading } from "../../shared/ui/loading/loading";
+
 @Component({
   selector: 'app-home',
-  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe],
+  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe, Dialog, FormGastos, Loading],
   templateUrl: './home.html',
   styleUrl: './home.css',
   animations: [dashboardPageAnimation]
 })
 export class Home implements OnInit {
+
   private expensesService = inject(ExpensesService)
+  private expenseEventsService = inject(ExpenseEventsService)
   private gastosService = inject(GastosService)
 
   expensesMovimientos: Expense[] = []
   totalSemana = 0;
   totalMes = 0;
+  loading = false;
+  visibleDialog = false;
 
   ngOnInit(): void {
-    this.expensesService.getExpenses().subscribe((expenses) => {
-
-      this.expensesMovimientos = expenses
-
+    this.loadData();
+    this.expenseEventsService.expenseChanged$.subscribe(() => {
+      this.loadData();
     })
 
-    this.gastosService.getTotalGastado(DateRangeType.THIS_WEEK).subscribe((total) => {
-      this.totalSemana = total
-    })
+  }
 
-    this.gastosService.getTotalGastado(DateRangeType.THIS_MONTH).subscribe((total) => {
-      this.totalMes = total
-    })
+  openDialog(): void {
+    this.visibleDialog = true;
+  }
 
+  closeDialog(): void {
+    this.visibleDialog = false;
+  }
+
+  setLoading(loading: boolean): void {
+    this.loading = loading;
+  }
+
+  private loadData(): void {
+    this.loading = true;
+
+    forkJoin({
+      expenses: this.expensesService.getExpenses(),
+      totalSemana: this.gastosService.getTotalGastado(DateRangeType.THIS_WEEK),
+      totalMes: this.gastosService.getTotalGastado(DateRangeType.THIS_MONTH)
+    }).subscribe({
+      next: ({ expenses, totalSemana, totalMes }) => {
+        this.expensesMovimientos = expenses;
+        this.totalSemana = totalSemana;
+        this.totalMes = totalMes;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    });
   }
 }

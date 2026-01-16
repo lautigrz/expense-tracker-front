@@ -41,6 +41,7 @@ p-password,
     padding-left: 40px !important;
 }
 
+
 .overlay {
     position: fixed !important;
     top: 0;
@@ -105,4 +106,23 @@ input:focus {
 .icon-label {
     font-size: 18px;
     opacity: 0.7;
+}
+
+
+@media (max-width: 1024px) {
+    .p-dialog {
+        min-width: 85% !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .p-dialog {
+        min-width: 300px;
+        max-width: 500px;
+    }
+}
+
+.p-dialog-content app-form-gastos {
+    flex: 1 1 auto;
+
 }

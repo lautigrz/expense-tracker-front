@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AddGasto } from '../../components/form-gasto/add-gasto/add-gasto';
+
 
 
 @Component({
   selector: 'app-add-expense',
-  imports: [AddGasto],
+  imports: [],
   templateUrl: './add-expense.html',
   styleUrl: './add-expense.css',
 })

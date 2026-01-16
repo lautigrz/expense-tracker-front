@@ -6,7 +6,7 @@
         </div>
         <div class="container-total">
             <small class="variation-label">Variación respecto al mes anterior</small>
-            <span class="variation-value">{{variation | number:'1.2-2'}}%</span>
+            <span class="variation-value {{getVariationColor()}}">{{variation | number:'1.2-2'}}%</span>
         </div>
     </div>
     <div class="grafico">

@@ -1,4 +1,4 @@
-<div class="movement-list">
+<div class="movement-list" (click)="openDialog()">
 
     <div class="movement-item">
         <div class="movement-left">
@@ -14,3 +14,15 @@
 
 
 </div>
+
+<p-dialog [(visible)]="visibleDialog" [modal]="true" [draggable]="false" appendTo="body" [style]="{ width: '85vw' }"
+    [contentStyle]="{
+    display: 'flex',
+    justifyContent: 'center',
+  }" [breakpoints]="{ '1024px': '85vw', '640px': '95vw' }">
+
+    @if (expensesMovimientos != null) {
+    <app-form-gastos [mode]="'edit'" [expense]="expensesMovimientos" (close)="closeDialog()">
+    </app-form-gastos>
+    }
+</p-dialog>

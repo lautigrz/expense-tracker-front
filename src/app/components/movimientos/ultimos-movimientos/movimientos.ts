@@ -3,10 +3,12 @@ import { Expense } from '../interfaces/expense.interface';
 import { Icon } from "../icon/icon";
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { Dialog } from 'primeng/dialog';
+import { FormGastos } from "../../form-gasto/form-gastos/form-gastos";
 registerLocaleData(localeEs);
 @Component({
   selector: 'app-movimientos',
-  imports: [Icon, DatePipe],
+  imports: [Icon, DatePipe, Dialog, FormGastos],
   templateUrl: './movimientos.html',
   styleUrl: './movimientos.css',
   providers: [
@@ -16,5 +18,13 @@ registerLocaleData(localeEs);
 export class Movimientos {
 
   @Input() expensesMovimientos: Expense | undefined
+  visibleDialog = false;
 
+  openDialog(): void {
+    this.visibleDialog = true;
+  }
+
+  closeDialog(): void {
+    this.visibleDialog = false;
+  }
 }

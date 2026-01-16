@@ -24,7 +24,6 @@ h3 {
 }
 
 
-
 .container-total {
     display: flex;
     gap: 8px;
@@ -39,8 +38,21 @@ h3 {
 .variation-value {
     font-size: 1.1rem;
     font-weight: 700;
-    color: green;
+
 }
+
+.improved {
+    color: #2e7d32;
+}
+
+.worsened {
+    color: #c62828;
+}
+
+.neutral {
+    color: #757575;
+}
+
 
 .grafico {
     display: flex;

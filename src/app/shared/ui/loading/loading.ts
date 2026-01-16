@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProgressSpinner } from 'primeng/progressspinner';
 
 @Component({
@@ -8,5 +8,5 @@ import { ProgressSpinner } from 'primeng/progressspinner';
   styleUrl: './loading.css',
 })
 export class Loading {
-
+  @Input() loading: boolean = false;
 }
