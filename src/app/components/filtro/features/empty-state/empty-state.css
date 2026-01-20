@@ -1,0 +1,13 @@
+.empty-state {
+    text-align: center;
+    padding: 48px 16px;
+}
+
+.empty-state .icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    color: #6b7280;
+}

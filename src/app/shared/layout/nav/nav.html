@@ -6,7 +6,18 @@
 
         <h1>Mis gastos</h1>
     </div>
-    <div class="add-gasto">
-        <button (click)="onClickAddExpense()" class="btn primary">+</button>
+    <div class="buttons">
+        @if(isFilterView){
+        <app-button [variant]="'primary'" [size]="'sm'" [icon]="'material-symbols-outlined'" [type]="'home'"
+            (click)="goHome()"></app-button>
+        }
+        @else{
+
+        <app-button [variant]="'primary'" [size]="'sm'" [icon]="'material-symbols-outlined'" [type]="'add'"
+            (click)="onClickAddExpense()"></app-button>
+
+        <app-button [variant]="'primary'" [size]="'sm'" [icon]="'material-symbols-outlined'" [type]="'filter_alt'"
+            (click)="onClickFilter()"></app-button>
+        }
     </div>
 </div>

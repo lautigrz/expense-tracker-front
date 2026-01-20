@@ -1,0 +1,17 @@
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+
+}
+
+.total span {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.total strong {
+    color: #ef4444;
+    font-size: 20px;
+}

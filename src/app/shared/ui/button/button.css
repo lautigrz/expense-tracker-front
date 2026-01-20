@@ -1,7 +1,7 @@
 .btn {
   border: none;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 15px;
   cursor: pointer;
   transition: .3s;
   font-family: Lexend, sans-serif;
@@ -18,13 +18,13 @@
 
 
 .btn.primary {
-  background: #c3b1e1;
+  background: #34d399;
   color: #fff;
 
 }
 
 .btn.primary:hover {
-  background: #b69edd;
+  background: #25a87e;
 }
 
 .btn.secondary {
@@ -40,9 +40,9 @@
 
 
 .btn.sm {
-  padding: 10px 15px;
+  padding: 10px 13px;
   font-size: 0.70rem;
-  
+
 }
 
 .btn.md {

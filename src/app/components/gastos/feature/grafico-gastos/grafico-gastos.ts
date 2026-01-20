@@ -75,7 +75,6 @@ export class GraficoGastos implements OnInit {
 
     private loadData(): void {
         this.gastosService.getTopCategories(DateRangeType.THIS_MONTH).subscribe(data => {
-            console.log(data)
             this.data = this.buildChartData(data);
             this.initChart();
         })

@@ -10,7 +10,7 @@
         <label class="field">
             <span>Monto</span>
             <div class="input-icon">
-                <span class="prefix">€</span>
+                <span class="prefix">$</span>
                 <input type="number" formControlName="amount" />
             </div>
         </label>
@@ -25,12 +25,8 @@
         <label class="field">
             <span>Categoría</span>
             <div class="select-wrapper">
-                <select formControlName="category">
-                    <option value="">Seleccionar</option>
-                    @for (category of categories; track $index) {
-                    <option value="{{category.categoryName}}">{{category.categoryName}}</option>
-                    }
-                </select>
+                <p-select formControlName="category" [options]="categories" optionLabel="categoryName"
+                    optionValue="categoryName" [placeholder]="'Seleccionar'" [style]="{ width: '100%' }"></p-select>
             </div>
         </label>
 

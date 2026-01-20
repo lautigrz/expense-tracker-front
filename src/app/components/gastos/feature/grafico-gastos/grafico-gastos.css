@@ -63,9 +63,3 @@ h3 {
 p-chart {
     max-width: 400px;
 }
-
-@media (max-width: 768px) {
-    small {
-        display: none;
-    }
-}

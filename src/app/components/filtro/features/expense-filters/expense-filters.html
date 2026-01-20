@@ -1,0 +1,32 @@
+<section class="filters padding-content">
+    <div class="quick-filters">
+        <button (click)="selectFilter('LAST_7_DAYS')" [class.active]="activeFilter === 'LAST_7_DAYS'">
+            Última semana
+        </button>
+        <button (click)="selectFilter('LAST_30_DAYS')" [class.active]="activeFilter === 'LAST_30_DAYS'">
+            Último mes
+        </button>
+        <button (click)="selectFilter('LAST_90_DAYS')" [class.active]="activeFilter === 'LAST_90_DAYS'">
+            Últimos 3 meses
+        </button>
+    </div>
+
+    <div class="date-filters">
+        <div>
+            <label>Fecha inicio</label>
+            <input type="date" [(ngModel)]="fechas[0]" (change)="selectFechaInicio($event.target.value)">
+        </div>
+        <div>
+            <label>Fecha fin</label>
+            <input type="date" [(ngModel)]="fechas[1]" (change)="selectFechaFin($event.target.value)">
+        </div>
+    </div>
+
+    <div class="categories">
+        @for (category of categories; track $index) {
+        <button class="chip" (click)="selectCategory(category.categoryName)"
+            [class.active]="activeCategory === category.categoryName">{{
+            category.categoryName | capitalize }}</button>
+        }
+    </div>
+</section>

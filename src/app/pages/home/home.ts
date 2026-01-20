@@ -8,12 +8,12 @@ import { Expense } from '../../components/movimientos/interfaces/expense.interfa
 import { GastosService } from '../../components/gastos/data-access/gastos-service';
 import { DateRangeType } from '../../components/gastos/enums/date.range';
 import { DecimalPipe } from '@angular/common';
-import { dashboardPageAnimation } from './home.animations';
 import { Dialog } from 'primeng/dialog';
 import { FormGastos } from "../../components/form-gasto/form-gastos/form-gastos";
 import { ExpenseEventsService } from '../../components/form-gasto/data-access/expense-events.service';
 import { forkJoin } from 'rxjs';
 import { Loading } from "../../shared/ui/loading/loading";
+import { dashboardPageAnimation } from '../../shared/animations/init.animations';
 
 @Component({
   selector: 'app-home',
@@ -58,7 +58,7 @@ export class Home implements OnInit {
     this.loading = true;
 
     forkJoin({
-      expenses: this.expensesService.getExpenses(),
+      expenses: this.expensesService.getExpenses(DateRangeType.THIS_MONTH),
       totalSemana: this.gastosService.getTotalGastado(DateRangeType.THIS_WEEK),
       totalMes: this.gastosService.getTotalGastado(DateRangeType.THIS_MONTH)
     }).subscribe({

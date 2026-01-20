@@ -1,4 +1,3 @@
-/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,7 +24,6 @@
     color: #555;
 }
 
-/* Title */
 .title {
     text-align: center;
     font-size: 28px;
@@ -33,7 +31,6 @@
     margin-bottom: 24px;
 }
 
-/* Form */
 .form {
     display: flex;
     flex-direction: column;
@@ -64,6 +61,11 @@ select {
     color: #2f3330;
 }
 
+select {
+    padding-left: 32px;
+    overflow: hidden;
+}
+
 input:focus,
 select:focus {
     outline: none;
@@ -71,7 +73,6 @@ select:focus {
     box-shadow: 0 0 0 2px rgba(79, 124, 255, 0.2);
 }
 
-/* Input icons */
 .input-icon,
 .select-wrapper {
     position: relative;

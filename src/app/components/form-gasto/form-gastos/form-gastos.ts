@@ -6,9 +6,13 @@ import { FormService } from '../data-access/form.service';
 import { Category } from '../../movimientos/interfaces/category.interface';
 import { ExpenseEventsService } from '../data-access/expense-events.service';
 import { Expense } from '../../movimientos/interfaces/expense.interface';
+import { SelectModule } from 'primeng/select';
+
+
+
 @Component({
   selector: 'app-form-gastos',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, SelectModule],
   templateUrl: './form-gastos.html',
   styleUrl: './form-gastos.css',
 })
@@ -17,7 +21,6 @@ export class FormGastos implements OnInit {
   private expenseEventsService = inject(ExpenseEventsService);
 
   categories: Category[] = []
-
 
   @Input() mode: 'create' | 'edit' = 'create';
   @Input() expense?: ExpenseRequest | Expense;
@@ -50,14 +53,22 @@ export class FormGastos implements OnInit {
     this.form = this.fb.group({
       description: [this.expense?.description || '', Validators.required],
       amount: [this.expense?.amount || 0, Validators.required],
-      date: [this.expense?.date || new Date(), Validators.required],
+      date: [
+        this.expense?.date
+          ? this.formatDateForInput(new Date(this.expense.date))
+          : this.formatDateForInput(new Date()),
+        Validators.required
+      ],
       category: [this.expense?.category || '', Validators.required],
     });
     this.getCategories();
   }
 
   onSubmit(): void {
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
 
     if (this.mode === 'create') {
       this.addExpense();
@@ -77,7 +88,12 @@ export class FormGastos implements OnInit {
       next: () => {
         this.expenseEventsService.notifyExpenseChanged();
         this.loading.emit(true);
-        this.form.reset();
+        this.form.reset({
+          description: '',
+          amount: null,
+          date: this.formatDateForInput(new Date()),
+          category: null
+        });
         this.close.emit();
       },
       error: (error) => {
@@ -132,5 +148,10 @@ export class FormGastos implements OnInit {
       }
     });
   }
+
+  private formatDateForInput(date: Date): string {
+    return date.toISOString().split('T')[0];
+  }
+
 
 }

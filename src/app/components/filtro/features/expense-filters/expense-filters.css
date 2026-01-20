@@ -1,0 +1,90 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.quick-filters {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.quick-filters button {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+    background: transparent;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-filters button:hover {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    color: #16a34a;
+}
+
+.quick-filters .active {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    color: #16a34a;
+}
+
+.date-filters {
+    display: flex;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+}
+
+.date-filters div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.date-filters input {
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 0 12px;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    color: #6b7280;
+    background: #f1f5f3;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chip:hover {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    color: #16a34a;
+}
+
+.chip.active {
+    background: #ffffff;
+    color: #16a34a;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+}

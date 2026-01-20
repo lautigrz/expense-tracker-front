@@ -1,0 +1,27 @@
+<main @revealTopToBottom>
+    <nav>
+        <app-nav></app-nav>
+    </nav>
+    <section class="content" @sectionEnter>
+        <app-expense-filters [cleanFechas]="cleanFechasSignal" (selectedFilter)="setRange($event)"
+            (selectedCategory)="setCategory($event)" (selectedDateRange)="setFechas($event)">
+        </app-expense-filters>
+    </section>
+    <section class="content" @sectionEnter>
+        <app-total-gastado [total]="total"></app-total-gastado>
+    </section>
+    @if (!loading && expenses.length === 0) {
+    <section class="content" @sectionEnter>
+        <app-empty-state></app-empty-state>
+    </section>
+    }
+
+    @if (!loading && expenses.length > 0) {
+    <section class="content" @sectionEnter>
+        @for (expense of expenses; track expense.id) {
+        <app-movimientos @itemCascade [expensesMovimientos]="expense">
+        </app-movimientos>
+        }
+    </section>
+    }
+</main>

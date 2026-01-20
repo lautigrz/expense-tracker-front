@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -9,11 +9,11 @@ import { Component, Input} from '@angular/core';
 })
 export class Button {
 
-  @Input() texto: string = 'Button';
+  @Input() texto?: string;
   @Input() variant: 'primary' | 'secondary' = 'primary';
   @Input() icon?: string;
   @Input() type?: string;
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
 
- 
+
 }
