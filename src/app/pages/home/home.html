@@ -5,10 +5,10 @@
     <section class="parent">
         <div class="total-semana">
             <app-total-gastos title="Total gastado esta semana"
-                totalGastado="{{totalSemana | number:'1.2-2'}}"></app-total-gastos>
+                totalGastado="{{totalSemana || 0 | number:'1.2-2'}}"></app-total-gastos>
         </div>
         <div class="total-mes"> <app-total-gastos title="Total gastado en el mes"
-                totalGastado="{{totalMes | number:'1.2-2'}}"></app-total-gastos></div>
+                totalGastado="{{totalMes || 0 | number:'1.2-2'}}"></app-total-gastos></div>
     </section>
 
     <section class="content-grafico">
@@ -22,11 +22,30 @@
         <h2 class="card-title">Últimos Movimientos</h2>
         @for (item of expensesMovimientos; track $index) {
 
-        <app-movimientos [expensesMovimientos]="item"></app-movimientos>
+        <app-movimientos [expensesMovimientos]="item" (delete)="deleteExpense($event)"></app-movimientos>
 
         }
+        @if (expensesMovimientos.length === 0) {
+        <app-empty-state icon="search" title="No se encontraron gastos en este mes"
+            message="Agrega un nuevo gasto para ver los movimientos."></app-empty-state>
+        }
     </section>
+
 </main>
+
+
+@if(error){
+<app-confirm-delete [header]="'Estado del Sistema'" [iconHeader]="'error'" [title]="'Error al Eliminar Gasto'"
+    [message]="'No se pudo eliminar el gasto, Por favor intente de nuevo'" [icon]="'error'" [visible]="visibleError"
+    (close)="closeDialog()" [error]="error">
+</app-confirm-delete>
+
+}
+
+
+
+
+
 
 <p-dialog [(visible)]="visibleDialog" [modal]="true" [draggable]="false" appendTo="body" [style]="{ width: '85vw' }"
     [contentStyle]="{

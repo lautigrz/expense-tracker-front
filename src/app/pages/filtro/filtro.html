@@ -12,14 +12,15 @@
     </section>
     @if (!loading && expenses.length === 0) {
     <section class="content" @sectionEnter>
-        <app-empty-state></app-empty-state>
+        <app-empty-state icon="search" title="No se encontraron gastos en este mes"
+            message="Proba cambiando el filtro o agregando un nuevo gasto."></app-empty-state>
     </section>
     }
 
     @if (!loading && expenses.length > 0) {
     <section class="content" @sectionEnter>
         @for (expense of expenses; track expense.id) {
-        <app-movimientos @itemCascade [expensesMovimientos]="expense">
+        <app-movimientos @itemCascade [expensesMovimientos]="expense" (delete)="deleteExpense($event)">
         </app-movimientos>
         }
     </section>

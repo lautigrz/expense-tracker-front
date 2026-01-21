@@ -1,7 +1,7 @@
-<div class="movement-list" (click)="openDialog()">
+<div class="movement-list">
 
     <div class="movement-item">
-        <div class="movement-left">
+        <div class="movement-left" (click)="openDialog()">
             <app-icon [icon]="expensesMovimientos!.category!.icon" [color]="expensesMovimientos!.category!.color"
                 [backgroundColor]="expensesMovimientos!.category!.background"></app-icon>
             <div class="movement-text">
@@ -9,7 +9,10 @@
                 <p class="movement-date">{{expensesMovimientos!.date | date: 'mediumDate'}}</p>
             </div>
         </div>
-        <p class="movement-amount negative">-$ {{expensesMovimientos!.amount}}</p>
+        <p class="movement-amount negative">-$ {{expensesMovimientos!.amount | number: '1.2-2'}} </p>
+        <span class="material-symbols-outlined movement-close" (click)="openConfirmDelete()">
+            delete
+        </span>
     </div>
 
 </div>
@@ -25,3 +28,10 @@
     </app-form-gastos>
     }
 </p-dialog>
+
+<app-confirm-delete [header]="'Confirmacion del Sistema'" [iconHeader]="'warning'"
+    [title]="'¿Estás seguro de que quieres eliminar este gasto?'"
+    [message]="'Esta acción no se puede deshacer. El registro desaparecerá de tu historial mensual de forma permanente.'"
+    [icon]="'delete_sweep'" [visible]="visibleConfirmDelete" [expense]="expensesMovimientos" (close)="closeDialog()"
+    (delete)="deleteExpense()">
+</app-confirm-delete>

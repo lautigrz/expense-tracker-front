@@ -5,10 +5,12 @@ import { TopCategory } from '../../interfaces/top-category';
 import { GastosService } from '../../data-access/gastos-service';
 import { DateRangeType } from '../../enums/date.range';
 import { ExpenseEventsService } from '../../../form-gasto/data-access/expense-events.service';
+import { forkJoin } from 'rxjs';
+import { EmptyState } from "../../../../shared/ui/empty-state/empty-state";
 
 @Component({
     selector: 'app-grafico-gastos',
-    imports: [ChartModule, DecimalPipe],
+    imports: [ChartModule, DecimalPipe, EmptyState],
     templateUrl: './grafico-gastos.html',
     styleUrl: './grafico-gastos.css',
 })
@@ -17,6 +19,7 @@ export class GraficoGastos implements OnInit {
     options: any;
     variation: number = 0;
     platformId = inject(PLATFORM_ID);
+    dataEmpty = false;
     private gastosService = inject(GastosService)
     private expenseEventsService = inject(ExpenseEventsService)
     constructor(private cd: ChangeDetectorRef) { }
@@ -74,12 +77,24 @@ export class GraficoGastos implements OnInit {
     }
 
     private loadData(): void {
-        this.gastosService.getTopCategories(DateRangeType.THIS_MONTH).subscribe(data => {
-            this.data = this.buildChartData(data);
-            this.initChart();
-        })
-        this.gastosService.getVariation().subscribe(data => {
-            this.variation = data;
+        let topCategoriesLength = 0;
+
+        forkJoin({
+            topCategories: this.gastosService.getTopCategories(DateRangeType.THIS_MONTH),
+            variation: this.gastosService.getVariation()
+        }).subscribe({
+            next: ({ topCategories, variation }) => {
+                this.data = this.buildChartData(topCategories);
+                this.initChart();
+                this.variation = variation;
+                topCategoriesLength = topCategories.length;
+            },
+            error: (error) => {
+                console.error(error);
+            },
+            complete: () => {
+                this.dataEmpty = topCategoriesLength === 0;
+            }
         })
     }
 

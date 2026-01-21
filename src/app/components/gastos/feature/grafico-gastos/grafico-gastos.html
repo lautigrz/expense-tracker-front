@@ -9,9 +9,14 @@
             <span class="variation-value {{getVariationColor()}}">{{variation | number:'1.2-2'}}%</span>
         </div>
     </div>
+    @if (dataEmpty) {
+    <app-empty-state icon="data_usage" title="No se encontraron gastos en este mes"
+        message="Para visualizar el grafico debes agregar un gasto."></app-empty-state>
+    }@else {
     <div class="grafico">
 
         <p-chart type="doughnut" [data]="data" [options]="options" class="w-full md:w-[30rem]" />
 
     </div>
+    }
 </div>

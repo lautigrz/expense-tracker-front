@@ -24,6 +24,54 @@
     transition: all 0.3s ease;
 }
 
+
+
+p-select:hover {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+}
+
+:host ::ng-deep .p-select {
+
+    max-width: 110px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+    background: #f1f5f3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+:host ::ng-deep .p-select-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+:host ::ng-deep .p-select-label:not(.p-placeholder) {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #16a34a;
+}
+
+
+:host ::ng-deep .p-select:hover .p-select-label.p-placeholder {
+    color: #16a34a;
+}
+
+:host ::ng-deep .p-select:focus,
+:host ::ng-deep .p-select:focus-visible,
+:host ::ng-deep .p-select.p-focus {
+    outline: none !important;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1) !important;
+    background: white !important;
+    border: none !important;
+}
+
+
 .quick-filters button:hover {
     background: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .1);

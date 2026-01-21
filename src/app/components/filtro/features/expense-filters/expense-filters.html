@@ -23,10 +23,13 @@
     </div>
 
     <div class="categories">
-        @for (category of categories; track $index) {
+        @for (category of visibleCategories; track $index) {
         <button class="chip" (click)="selectCategory(category.categoryName)"
             [class.active]="activeCategory === category.categoryName">{{
             category.categoryName | capitalize }}</button>
         }
+        <p-select [options]="hiddenCategories" optionLabel="categoryName" optionValue="categoryName" placeholder="Más"
+            [(ngModel)]="selectCategoryValue" (onChange)="onSelectChange($event.value)">
+        </p-select>
     </div>
 </section>

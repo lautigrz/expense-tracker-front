@@ -14,10 +14,12 @@ import { ExpenseEventsService } from '../../components/form-gasto/data-access/ex
 import { forkJoin } from 'rxjs';
 import { Loading } from "../../shared/ui/loading/loading";
 import { dashboardPageAnimation } from '../../shared/animations/init.animations';
+import { EmptyState } from "../../shared/ui/empty-state/empty-state";
+import { ConfirmDelete } from '../../components/confirm-delete/confirm-delete';
 
 @Component({
   selector: 'app-home',
-  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe, Dialog, FormGastos, Loading],
+  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe, Dialog, FormGastos, Loading, EmptyState, ConfirmDelete],
   templateUrl: './home.html',
   styleUrl: './home.css',
   animations: [dashboardPageAnimation]
@@ -33,7 +35,8 @@ export class Home implements OnInit {
   totalMes = 0;
   loading = false;
   visibleDialog = false;
-
+  visibleError = false;
+  error = false;
   ngOnInit(): void {
     this.loadData();
     this.expenseEventsService.expenseChanged$.subscribe(() => {
@@ -48,11 +51,32 @@ export class Home implements OnInit {
 
   closeDialog(): void {
     this.visibleDialog = false;
+    this.visibleError = false;
   }
 
   setLoading(loading: boolean): void {
     this.loading = loading;
   }
+
+
+  deleteExpense(id: number): void {
+    this.loading = true;
+    this.expensesService.deleteExpense(id).subscribe({
+      next: () => {
+        this.expenseEventsService.notifyExpenseChanged();
+      },
+      error: (error) => {
+        this.loading = false;
+        this.error = true;
+        this.visibleError = true;
+
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    })
+  }
+
 
   private loadData(): void {
     this.loading = true;

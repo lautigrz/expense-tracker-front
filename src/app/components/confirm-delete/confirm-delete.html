@@ -1,0 +1,50 @@
+<p-dialog [(visible)]="visible" [closable]="closeable" [dismissableMask]="true" [draggable]="false"
+    [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{'min-width': '340px'}" (onHide)="cerrarDialog()"
+    [modal]="true">
+
+    <ng-template pTemplate="header">
+        <p class="header"> <span class="material-symbols-outlined icon-header" [class.error]="error"
+                [class.warning]="!error">
+                {{ iconHeader }}
+            </span> {{header}}</p>
+    </ng-template>
+
+    <ng-template pTemplate="message">
+        <div class="container">
+            <span class="material-symbols-outlined icon" [class.error]="error" [class.warning]="!error">
+                {{ icon }}
+            </span>
+
+            <div class="confirmacion">
+                <h1 class="title-alert">{{ title }}</h1>
+                <p class="text-alert">{{ message }}</p>
+            </div>
+
+        </div>
+
+
+        @if(error){
+        <div class="footer">
+            <p-button label="Entiendo" severity="secondary" (click)="cerrarDialog()" />
+        </div>
+        }@else {
+        <div class="vista-previa">
+            <app-icon [icon]="expense!.category.icon" [color]="expense!.category.color"
+                [backgroundColor]="expense!.category.background"></app-icon>
+            <div class="informacion">
+                <p class="description">{{expense!.description}}</p>
+                <p class="date">{{expense!.date | date: 'mediumDate'}}</p>
+            </div>
+            <p class="amount">-$ {{expense!.amount | number: '1.2-2'}} </p>
+        </div>
+
+        <div class="footer">
+            <p-button label="Cancelar" severity="secondary" (click)="cerrarDialog()" outlined="false" />
+            <p-button label="Eliminar" severity="danger" (click)="deleteExpense()" outlined="false" />
+        </div>
+        }
+
+    </ng-template>
+
+
+</p-dialog>

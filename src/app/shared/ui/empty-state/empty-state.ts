@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-empty-state',
@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class EmptyState {
 
+  @Input() icon: string = '';
+  @Input() title: string = '';
+  @Input() message: string = '';
 }

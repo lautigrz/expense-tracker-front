@@ -15,10 +15,8 @@
                     <label for="username">Username</label>
                     <div class="input-wrapper">
                         <span class="material-symbols-outlined input-icon">person</span>
-                        <input pInputText id="username" 
-                        placeholder="Ej: lautigrz" autocomplete="off"
-                        formControlName="username"
-                        />
+                        <input pInputText id="username" placeholder="Ej: lautigrz" autocomplete="off"
+                            formControlName="username" />
                     </div>
                 </div>
 
@@ -26,19 +24,22 @@
                     <label for="password">Password</label>
                     <div class="input-wrapper">
                         <span class="material-symbols-outlined input-icon">lock</span>
-                        <p-password inputId="password" [toggleMask]="true" feedback="false" placeholder="Ingrese su contraseña" autocomplete="off"
-                        formControlName="password"
-                        >
-                            
+                        <p-password inputId="password" [toggleMask]="true" feedback="false"
+                            placeholder="Ingrese su contraseña" autocomplete="off" formControlName="password">
+
                         </p-password>
                     </div>
                 </div>
 
             </div>
 
-           <div class="boton">
-             <app-button texto="Iniciar sesion" (click)="onSubmit()"></app-button>
-           </div>
+            @if(error){
+            <app-message-invalid [mensaje]="errorMessage"></app-message-invalid>
+            }
+
+            <div class="boton">
+                <app-button texto="Iniciar sesion" (click)="onSubmit()"></app-button>
+            </div>
         </form>
 
         <p class="mensaje-registro">No tenes cuenta? <a class="registro" routerLink="/auth/registro">Registrate</a></p>

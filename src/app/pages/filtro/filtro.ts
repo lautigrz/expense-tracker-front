@@ -2,7 +2,7 @@ import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular
 import { ExpenseFilters } from "../../components/filtro/features/expense-filters/expense-filters";
 import { Nav } from "../../shared/layout/nav/nav";
 import { TotalGastado } from "../../components/filtro/features/total-gastado/total-gastado";
-import { EmptyState } from "../../components/filtro/features/empty-state/empty-state";
+import { EmptyState } from "../../shared/ui/empty-state/empty-state";
 import { Movimientos } from "../../components/movimientos/ultimos-movimientos/movimientos";
 import { ExpensesService } from '../../components/movimientos/data-acces/expenses.service';
 import { Expense } from '../../components/movimientos/interfaces/expense.interface';
@@ -34,7 +34,8 @@ export class Filtro implements OnInit {
   fechas: string[] = [];
   cleanFechasSignal = 0;
   loading = true;
-
+  visibleError = false;
+  error = false;
   ngOnInit(): void {
     this.loadData();
     this.expenseEventsService.expenseChanged$.subscribe(() => {
@@ -80,6 +81,22 @@ export class Filtro implements OnInit {
     this.loadData();
   }
 
+  deleteExpense(id: number): void {
+    this.loading = true;
+    this.expensesService.deleteExpense(id).subscribe({
+      next: () => {
+        this.expenseEventsService.notifyExpenseChanged();
+      },
+      error: (error) => {
+        this.loading = false;
+        this.error = true;
+        this.visibleError = true;
 
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    })
+  }
 
 }
