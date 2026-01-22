@@ -35,10 +35,10 @@
 
 
 @if(error){
-<app-confirm-delete [header]="'Estado del Sistema'" [iconHeader]="'error'" [title]="'Error al Eliminar Gasto'"
+<app-dialog-delete [header]="'Estado del Sistema'" [iconHeader]="'error'" [title]="'Error al Eliminar Gasto'"
     [message]="'No se pudo eliminar el gasto, Por favor intente de nuevo'" [icon]="'error'" [visible]="visibleError"
     (close)="closeDialog()" [error]="error">
-</app-confirm-delete>
+</app-dialog-delete>
 
 }
 

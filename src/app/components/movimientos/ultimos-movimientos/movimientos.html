@@ -29,9 +29,9 @@
     }
 </p-dialog>
 
-<app-confirm-delete [header]="'Confirmacion del Sistema'" [iconHeader]="'warning'"
+<app-dialog-delete [header]="'Confirmacion del Sistema'" [iconHeader]="'warning'"
     [title]="'¿Estás seguro de que quieres eliminar este gasto?'"
     [message]="'Esta acción no se puede deshacer. El registro desaparecerá de tu historial mensual de forma permanente.'"
     [icon]="'delete_sweep'" [visible]="visibleConfirmDelete" [expense]="expensesMovimientos" (close)="closeDialog()"
     (delete)="deleteExpense()">
-</app-confirm-delete>
+</app-dialog-delete>

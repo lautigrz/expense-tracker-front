@@ -15,11 +15,11 @@ import { forkJoin } from 'rxjs';
 import { Loading } from "../../shared/ui/loading/loading";
 import { dashboardPageAnimation } from '../../shared/animations/init.animations';
 import { EmptyState } from "../../shared/ui/empty-state/empty-state";
-import { ConfirmDelete } from '../../components/confirm-delete/confirm-delete';
+import { DialogDelete } from '../../components/dialog-delete/dialog-delete';
 
 @Component({
   selector: 'app-home',
-  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe, Dialog, FormGastos, Loading, EmptyState, ConfirmDelete],
+  imports: [GraficoGastos, TotalGastos, Nav, Movimientos, DecimalPipe, Dialog, FormGastos, Loading, EmptyState, DialogDelete],
   templateUrl: './home.html',
   styleUrl: './home.css',
   animations: [dashboardPageAnimation]

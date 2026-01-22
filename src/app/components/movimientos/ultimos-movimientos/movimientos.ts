@@ -5,13 +5,13 @@ import { DatePipe, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { Dialog } from 'primeng/dialog';
 import { FormGastos } from "../../form-gasto/form-gastos/form-gastos";
-import { ConfirmDelete } from "../../confirm-delete/confirm-delete";
+import { DialogDelete } from "../../dialog-delete/dialog-delete";
 import { DecimalPipe } from '@angular/common';
 
 registerLocaleData(localeEs);
 @Component({
   selector: 'app-movimientos',
-  imports: [Icon, DatePipe, Dialog, FormGastos, ConfirmDelete, DecimalPipe],
+  imports: [Icon, DatePipe, Dialog, FormGastos, DialogDelete, DecimalPipe],
   templateUrl: './movimientos.html',
   styleUrl: './movimientos.css',
   providers: [

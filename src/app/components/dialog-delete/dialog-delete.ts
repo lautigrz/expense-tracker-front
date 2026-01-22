@@ -8,12 +8,12 @@ import { Expense } from '../movimientos/interfaces/expense.interface';
 import { Icon } from "../movimientos/icon/icon";
 
 @Component({
-  selector: 'app-confirm-delete',
+  selector: 'app-dialog-delete',
   imports: [ConfirmDialogModule, DialogModule, ButtonModule, Icon, DecimalPipe, DatePipe],
-  templateUrl: './confirm-delete.html',
-  styleUrl: './confirm-delete.css',
+  templateUrl: './dialog-delete.html',
+  styleUrl: './dialog-delete.css',
 })
-export class ConfirmDelete {
+export class DialogDelete {
   @Input() header: string = '';
   @Input() iconHeader: string = '';
   @Input() title: string = '';
