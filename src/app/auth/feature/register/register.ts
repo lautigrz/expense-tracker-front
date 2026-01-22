@@ -9,13 +9,13 @@ import { UserRegisterRequest } from '../../interfaces/user-request';
 import { AuthService } from '../../data-access/auth.service';
 import { MessageInvalid } from "../../../shared/ui/message-invalid/message-invalid";
 
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ConfirmDialog } from '../../../shared/ui/confirm-dialog/confirm-dialog';
 
 @Component({
   selector: 'app-register',
   imports: [FormsModule, InputTextModule, PasswordModule,
-    Button, Loading, ReactiveFormsModule, MessageInvalid, ConfirmDialog],
+    Button, Loading, ReactiveFormsModule, MessageInvalid, ConfirmDialog, RouterLink],
   providers: [],
   templateUrl: './register.html',
   styleUrl: './register.css',

@@ -1,4 +1,4 @@
-<p-dialog [(visible)]="visible" [closable]="closeable" [dismissableMask]="true" [draggable]="false"
+<p-dialog [(visible)]="visible" [modal]="true" [closable]="closeable" [dismissableMask]="true" [draggable]="false"
   [breakpoints]="{'960px': '75vw', '640px': '90vw'}" [style]="{'min-width': '340px'}" (onHide)="cerrarDialog()">
 
   <ng-template pTemplate="header">
@@ -8,11 +8,10 @@
   <ng-template pTemplate="message">
 
     <div class="confirmacion">
-      <p class="text-lg font-semibold text-center">{{ message }}</p>
       <span class="material-symbols-outlined ">
         {{icon}}
       </span>
-      
+      <p class="text-lg font-semibold text-center">{{ message }}</p>
     </div>
   </ng-template>
 

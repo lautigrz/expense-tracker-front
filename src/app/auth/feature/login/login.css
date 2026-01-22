@@ -38,10 +38,10 @@
 }
 
 .header-form span {
-    background-color: #eeeeee;
+    background-color: #d1fae5;
     border-radius: 50%;
     padding: 10px;
-    color: #c3b1e1;
+    color: #34d399;
 }
 
 .container-input {
@@ -92,12 +92,12 @@
     text-align: center;
 }
 
-.registro{
-      color: #c3b1e1;
-      font-weight: 800;
-      cursor: pointer;
+.registro {
+    color: #34d399;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-.registro:hover{
-     color: #b69edd;
+.registro:hover {
+    color: #22b69e;
 }

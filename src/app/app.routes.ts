@@ -17,5 +17,10 @@ export const routes: Routes = [
   {
     path: 'filtro',
     loadChildren: () => import('./pages/filtro/filtro.routes').then(m => m.default)
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];

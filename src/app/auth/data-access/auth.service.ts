@@ -17,13 +17,12 @@ export class AuthService {
 
   registerUser(user: UserRegisterRequest): Observable<any> {
 
-    return this.httpClient.post<any>(`${this.baseUrl}${environment.registerEndopint}`, user)
+    return this.httpClient.post<any>(`${this.baseUrl}/auth/register`, user)
   }
-
 
   loginUser(user: UserLogin): Observable<UserResponse> {
 
-    return this.httpClient.post<UserResponse>(`${this.baseUrl}${environment.loginEndpoint}`, user)
+    return this.httpClient.post<UserResponse>(`${this.baseUrl}/login`, user)
   }
 
 }
