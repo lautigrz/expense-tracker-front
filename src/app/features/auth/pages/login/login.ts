@@ -9,6 +9,7 @@ import { AuthService } from '../../data-access/auth.service';
 import { Router } from '@angular/router';
 import { UserResponse } from '../../models/user-response';
 import { MessageInvalid } from "../../../../shared/ui/message-invalid/message-invalid";
+import { AuthStateService } from '../../../../core/services/auth-state.service';
 @Component({
   selector: 'app-login',
   imports: [FormsModule, ReactiveFormsModule, InputTextModule, PasswordModule, Button, RouterLink, MessageInvalid],
@@ -20,6 +21,7 @@ export class Login {
   loginForm!: FormGroup;
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private authState = inject(AuthStateService);
   private router = inject(Router);
   loading = false;
   error = false;
@@ -40,7 +42,7 @@ export class Login {
       this.authService.loginUser(user).subscribe({
         next: (data: UserResponse) => {
           this.loading = false;
-          localStorage.setItem('token', data.token);
+          this.authState.login(data.token, user.username);
           this.router.navigate(['/home']);
         },
         error: (err: any) => {

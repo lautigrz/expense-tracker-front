@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environment/environments';
 import { HttpClient } from '@angular/common/http';
 import { UserLogin, UserRegisterRequest } from '../models/user-request';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserResponse } from '../models/user-response';
 @Injectable({
   providedIn: 'root',
@@ -23,6 +23,20 @@ export class AuthService {
   loginUser(user: UserLogin): Observable<UserResponse> {
 
     return this.httpClient.post<UserResponse>(`${this.baseUrl}/login`, user)
+  }
+
+  verifyToken(): Observable<{ valid: boolean }> {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return of({ valid: false });
+    }
+
+    return this.httpClient.get<{ valid: boolean }>(`${this.baseUrl}/auth/verify`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   }
 
 }
