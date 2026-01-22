@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Login } from './auth/feature/login/login';
+import { Login } from './features/auth/pages/login/login';
 
 export const routes: Routes = [
   {
@@ -8,15 +8,15 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/feature/auth.routes').then(m => m.default)
+    loadChildren: () => import('./features/auth/auth.routes').then(m => m.default)
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.routes').then(m => m.default)
+    loadChildren: () => import('./features/expenses/pages/home/home.routes').then(m => m.default)
   },
   {
     path: 'filtro',
-    loadChildren: () => import('./pages/filtro/filtro.routes').then(m => m.default)
+    loadChildren: () => import('./features/expenses/pages/filters/filtro.routes').then(m => m.default)
   },
   {
     path: '**',
